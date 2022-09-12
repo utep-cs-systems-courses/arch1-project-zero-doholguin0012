@@ -26,13 +26,31 @@ int main()
       break;
     case 'c':
       puts("You selected chars:");
-      for (char c = 'A'; c < 'D'; c++)
-	print_char_11x16(c);
+      fputs("Select the size of character the character you would like to print a:11x16, b:5x7, c:8x12? \n>",stdout);
+      fflush(stdout);
+      int c;
+      while (( c = getchar()) == '\n');
+      if(c == EOF)
+	goto done;
+      switch (c) {
+      case 'a':
+	for (char c = 'A'; c < 'D'; c++)
+	  print_char_11x16(c);
+	break;
+      case 'b':
+	for (char c = 'A'; c < 'D'; c++)
+	  print_char_5x7(c);
+	break;
+      case 'c':
+	for (char c = 'A'; c < 'D'; c++)
+	  print_char_8x12(c);
+	break;
+      }
       break;
     case 'a':
       puts("You selected arrow:");
       print_triangle(5,7);
-      print_square(5,7);
+      print_square(9,7);
       break;
     case 'q':
       puts("Bye!");
